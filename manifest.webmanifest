@@ -1,0 +1,10 @@
+{
+  "name": "TRAIN STOP CHALLENGE Achievement Modifier",
+  "short_name": "TSC Modifier",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#071522",
+  "theme_color": "#071522",
+  "description": "Serverless achievement editor for TRAIN STOP CHALLENGE."
+}
