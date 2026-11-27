@@ -15,7 +15,7 @@
 <body>
 <div class="wrap">
 <header class="top">
- <div class="brand"><div class="logo">🚆</div><div><h1>TRAIN STOP CHALLENGE</h1><small>ACHIEVEMENT MODIFIER</small></div></div>
+ <div class="brand"><div class="logo">🚆</div><div><h1>TRAIN STOP CHALLENGE</h1><small>ACHIEVEMENT MODIFIER</small><span class="pill" style="display:inline-block;margin-top:5px">TOOL VERSION v1.1.0 · LATEST</span></div></div>
  <span class="pill">LOCAL ONLY · NO SERVER</span>
 </header>
 <section class="panel hero">
@@ -74,6 +74,7 @@
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
+const MODIFIER_AUTH='TSC-MODIFIER-AUTH-V1';
 const ACH=[
 ['初めての定位置','初めてピッタリ停車する'],['神業ブレーキ','ピッタリ停車5回'],['寸分の狂いなし','ピッタリ停車10回'],['ミリ単位の職人','ピッタリ停車20回'],['停車の神様','ピッタリ停車50回'],['伝説の運転士','ピッタリ停車100回'],
 ['あっ、行き過ぎた！','初めて停車位置を通り過ぎる'],['ブレーキどこ？','通り過ぎ5回'],['止まる気配なし','通り過ぎ10回'],['駅を通過します','通り過ぎ20回'],['特急気分','通り過ぎ50回'],
@@ -156,7 +157,7 @@ $('selectAll').addEventListener('click',()=>{selected=new Set(ACH.map((_,i)=>Str
 $('deselectAll').addEventListener('click',()=>{selected.clear();render()});
 $('exportBtn').addEventListener('click',async()=>{
  if(!working)return;
- try{working.lastSavedAt=new Date().toISOString();const code=await encryptCode(working);$('outputCode').value=code;$('exportArea').classList.remove('hidden');say('exportMessage','新しい引き継ぎコードを作成しました。ゲーム側で読み込んでください。','success');$('exportArea').scrollIntoView({behavior:'smooth',block:'center'})}
+ try{working.lastSavedAt=new Date().toISOString();const modifiedSave=JSON.parse(JSON.stringify(working));modifiedSave.modifierAuthorization=MODIFIER_AUTH;const code=await encryptCode(modifiedSave);$('outputCode').value=code;$('exportArea').classList.remove('hidden');say('exportMessage','新しい引き継ぎコードを作成しました。ゲーム側で読み込んでください。','success');$('exportArea').scrollIntoView({behavior:'smooth',block:'center'})}
  catch(e){say('exportMessage',e.message||'コードの作成に失敗しました。','error')}
 });
 $('copyBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('outputCode').value);say('exportMessage','コードをコピーしました。','success')}catch{$('outputCode').focus();$('outputCode').select();say('exportMessage','自動コピーできませんでした。コードを選択してコピーしてください。','error')}});
