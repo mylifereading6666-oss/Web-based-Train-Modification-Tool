@@ -2,7 +2,7 @@
 
 TRAIN STOP CHALLENGE専用の実績解除状態編集ツールです。ゲーム本体から発行した引き継ぎコードを読み込み、30種類の実績の解除状態を編集し、ゲーム本体で再び読み込める引き継ぎコードを発行します。
 
-**最新ツールバージョン：v1.2.0**
+**最新ツールバージョン：v1.3.0**
 
 ## 公開ページ
 https://mylifereading6666-oss.github.io/Web-based-Train-Modification-Tool/
