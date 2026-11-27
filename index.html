@@ -193,7 +193,7 @@ $('exportBtn').addEventListener('click',async()=>{
 });
 $('copyBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('outputCode').value);say('exportMessage','コードをコピーしました。','success')}catch{$('outputCode').focus();$('outputCode').select();say('exportMessage','自動コピーできませんでした。コードを選択してコピーしてください。','error')}});
 $('downloadBtn').addEventListener('click',()=>{const blob=new Blob([$('outputCode').value],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='train-stop-challenge-modified-code.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});
-if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=1.2.0',{updateViaCache:'none'}).then(reg=>reg.update()).catch(()=>{}));
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=1.3.0',{updateViaCache:'none'}).then(reg=>reg.update()).catch(()=>{}));
 })();
 </script>
 </body></html>
