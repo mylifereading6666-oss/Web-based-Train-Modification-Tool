@@ -19,7 +19,7 @@
 <div id="authGate"><section class="auth-card"><div class="eyebrow">PERSONAL ACCESS</div><h2>管理者パスワード認証</h2><p class="muted">専用パスワードを入力してください。</p><form id="authForm"><label class="field"><b>パスワード</b><input id="authPassword" type="password" autocomplete="current-password" required></label><button class="primary" id="authSubmit" type="submit">ロックを解除</button></form><div id="authMessage" class="message" role="status" aria-live="polite"></div><div class="auth-warning">サーバーを使用しないため、これは公開ブラウザ内のアクセス制限です。ソースコードを変更できる人への完全な本人確認・改変防止にはなりません。</div></section></div>
 <div class="wrap">
 <header class="top">
- <div class="brand"><div class="logo">🚆</div><div><h1>TRAIN STOP CHALLENGE</h1><small>ACHIEVEMENT MODIFIER</small><span class="pill" style="display:inline-block;margin-top:5px">TOOL VERSION v1.3.0 · LATEST</span></div></div>
+ <div class="brand"><div class="logo">🚆</div><div><h1>TRAIN STOP CHALLENGE</h1><small>ACHIEVEMENT MODIFIER</small><span class="pill" style="display:inline-block;margin-top:5px">TOOL VERSION v1.4.0 · LATEST</span></div></div>
  <button class="ghost" id="lockToolBtn" type="button">🔒 ロック</button>
 </header>
 <section class="panel hero">
@@ -126,16 +126,26 @@ function validateSave(d){
  if(!['on','off'].includes(d.settings.sfx)||!['on','off'].includes(d.settings.bgm)||![d.settings.sfxVolume,d.settings.bgmVolume].every(v=>Number.isInteger(v)&&v>=0&&v<=100))throw Error('ゲーム設定の値が不正です');
  return d;
 }
+function extractTransferCode(raw){
+ let text=String(raw??'').replace(/^\uFEFF/,'').trim();
+ if(text.startsWith('"')&&text.endsWith('"')){try{const v=JSON.parse(text);if(typeof v==='string')text=v.trim()}catch{}}
+ text=text.replace(/^\x60{3}(?:text|txt)?\s*/i,'').replace(/\s*\x60{3}$/,'').trim();
+ const compact=text.replace(/\s/g,'');
+ const match=compact.match(/TS1\.[A-Za-z0-9+/=]+\.[A-Za-z0-9+/=]+\.[A-Za-z0-9+/=]+/);
+ if(!match)throw Error('TS1. で始まるコードが見つかりません。ゲーム本体で発行した引き継ぎコード全体を貼り付けてください。');
+ const parts=match[0].split('.');
+ if(parts.length!==4)throw Error('引き継ぎコードの区切りが正しくありません。');
+ return parts;
+}
 async function decryptCode(raw){
  if(!window.isSecureContext||!crypto.subtle)throw Error('暗号化機能を利用できません。HTTPSでページを開いてください。');
- const code=String(raw||'').trim().replace(/\s/g,'');
- const parts=code.split('.');
- if(parts.length!==4||parts[0]!=='TS1')throw Error('TS1. から始まるゲームの引き継ぎコードを入力してください');
+ const parts=extractTransferCode(raw);
  const secret=unb64(parts[1]),iv=unb64(parts[2]),ciphertext=unb64(parts[3]);
- if(secret.length!==32||iv.length!==12||ciphertext.length>2e6)throw Error('コードのサイズまたは形式が不正です');
+ if(secret.length!==32||iv.length!==12||ciphertext.length>2e6)throw Error('コードのサイズまたは形式が不正です。ゲーム本体で新しいコードを発行してください。');
  const key=await crypto.subtle.importKey('raw',secret,'AES-GCM',false,['decrypt']);
- const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,ciphertext);
- return validateSave(JSON.parse(new TextDecoder().decode(plain)));
+ let plain;try{plain=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,ciphertext)}catch{throw Error('コードの復号に失敗しました。コピー漏れ・欠落・破損がないか確認し、ゲーム本体で新しいコードを発行してください。')}
+ let data;try{data=JSON.parse(new TextDecoder().decode(plain))}catch{throw Error('コード内のセーブデータを読み取れませんでした。もう一度コードを発行してください.')}
+ return validateSave(data);
 }
 async function encryptCode(data){
  validateSave(data);
@@ -193,7 +203,7 @@ $('exportBtn').addEventListener('click',async()=>{
 });
 $('copyBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('outputCode').value);say('exportMessage','コードをコピーしました。','success')}catch{$('outputCode').focus();$('outputCode').select();say('exportMessage','自動コピーできませんでした。コードを選択してコピーしてください。','error')}});
 $('downloadBtn').addEventListener('click',()=>{const blob=new Blob([$('outputCode').value],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='train-stop-challenge-modified-code.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});
-if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=1.3.0',{updateViaCache:'none'}).then(reg=>reg.update()).catch(()=>{}));
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=1.4.0',{updateViaCache:'none'}).then(reg=>reg.update()).catch(()=>{}));
 })();
 </script>
 </body></html>
