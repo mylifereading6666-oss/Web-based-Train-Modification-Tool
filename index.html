@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071522">
+<meta name="description" content="TRAIN STOP CHALLENGE専用のサーバー不要・引き継ぎコード方式の実績解除ツール。">
+<title>TRAIN STOP CHALLENGE — Achievement Modifier</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<style>
+:root{color-scheme:dark;--bg:#071522;--panel:#102438;--panel2:#18334b;--line:#31516b;--text:#edf7ff;--muted:#9db5c9;--cyan:#66d9ff;--green:#73e0b0;--yellow:#ffd477;--red:#ff8585}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -15%,#194568 0,#0a1b2b 48%,#06111c 100%);color:var(--text);font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}button,textarea{font:inherit}button{cursor:pointer;color:var(--text);border:1px solid #41627b;border-radius:12px;background:linear-gradient(180deg,#24445e,#142d43);padding:11px 15px;font-weight:750;box-shadow:0 4px 0 #06111b,0 8px 18px #0004;transition:transform .12s,filter .12s}button:active{transform:translateY(3px);box-shadow:0 1px 0 #06111b}button:disabled{opacity:.42;cursor:not-allowed}.primary{background:linear-gradient(180deg,#37bce8,#1479ad);border-color:#74ddff;color:#031725}.good{background:linear-gradient(180deg,#39ba8b,#16765a);border-color:#72e7bd}.warn{background:linear-gradient(180deg,#b47b35,#68451e);border-color:#e8bd72}.danger{background:linear-gradient(180deg,#a74650,#672a38)}.ghost{background:#102438;box-shadow:none}.wrap{max-width:1080px;margin:auto;padding:18px 15px 50px}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:6px 0 20px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#45d2ff,#2561a4);color:#031725;font-size:25px;box-shadow:0 8px 24px #28aee755}.brand h1{font-size:clamp(18px,4vw,25px);margin:0;letter-spacing:.04em}.brand small{color:var(--muted);letter-spacing:.12em}.panel{background:linear-gradient(145deg,#11283b,#0c1d2d);border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 16px 40px #0003}.hero{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:.16em;font-weight:800}.hero h2{font-size:clamp(23px,5vw,34px);margin:4px 0}.muted{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.stat{background:#0a1a29;border:1px solid #28465e;border-radius:13px;padding:12px;min-width:0}.stat small{display:block;color:var(--muted);font-size:12px}.stat strong{font-size:clamp(17px,4vw,23px);font-variant-numeric:tabular-nums}.field{display:flex;flex-direction:column;gap:7px}.codebox{width:100%;min-height:135px;resize:vertical;padding:13px;background:#06111c;border:1px solid #3a5a72;border-radius:10px;color:#c9edff;overflow-wrap:anywhere}.actions{display:flex;gap:9px;flex-wrap:wrap;margin:13px 0}.notice{border-left:3px solid var(--yellow);background:#382d1b77;padding:11px 13px;border-radius:8px;color:#f8dfad;font-size:13px}.success{color:var(--green)}.error{color:var(--red)}.achievement-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.achievement{display:flex;align-items:flex-start;gap:10px;padding:12px;border:1px solid #2b4961;background:#0a1a29;border-radius:12px;min-width:0}.achievement.unlocked{border-color:#4e9b82;background:#0b251f}.achievement input{width:19px;height:19px;accent-color:#4ad6a0;flex:0 0 auto;margin:3px 0 0}.achievement .medal{font-size:23px;flex:0 0 auto;filter:grayscale(1);opacity:.48}.achievement.unlocked .medal{filter:none;opacity:1}.achievement strong{display:block;font-size:13px}.achievement small{display:block;color:var(--muted);font-size:11px}.achievement .date{color:var(--green);margin-top:4px}.section-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.section-title h3{margin:0;font-size:19px}.progress{height:9px;background:#071522;border-radius:20px;overflow:hidden;margin:9px 0 15px}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#48c8ff,#7ce5b2);transition:width .2s}.hidden{display:none!important}.message{min-height:24px;margin:10px 0;font-weight:700}.footer{text-align:center;color:#7792a8;font-size:12px;padding:20px}.link{color:#82dcff;text-decoration:none}.link:hover{text-decoration:underline}.pill{display:inline-block;padding:3px 9px;border:1px solid #41627b;border-radius:20px;color:var(--muted);font-size:11px}.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.count{font-size:14px;color:var(--cyan);font-weight:800}@media(max-width:650px){.wrap{padding:12px 10px 35px}.panel{padding:14px}.stats{grid-template-columns:1fr 1fr}.achievement-list{grid-template-columns:1fr}.top{align-items:flex-start}.top .pill{display:none}.actions button{flex:1 1 auto}.hero{align-items:flex-start}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+ <div class="brand"><div class="logo">🚆</div><div><h1>TRAIN STOP CHALLENGE</h1><small>ACHIEVEMENT MODIFIER</small></div></div>
+ <span class="pill">LOCAL ONLY · NO SERVER</span>
+</header>
+<section class="panel hero">
+ <div><div class="eyebrow">SAVE DATA MODIFICATION TOOL</div><h2>実績を自分で管理する。</h2><div class="muted">ゲーム本体から発行した引き継ぎコードを読み込み、実績の解除状態を編集して戻します。</div></div>
+ <div><span class="pill">30 ACHIEVEMENTS</span></div>
+</section>
+<section class="panel">
+ <div class="section-title"><h3>1. 引き継ぎコードを読み込む</h3><span class="eyebrow">IMPORT</span></div>
+ <p class="muted">TRAIN STOP CHALLENGEの「データ引き継ぎ」から発行した <b>TS1.</b> で始まるコードを貼り付けてください。</p>
+ <label class="field" for="inputCode"><b>引き継ぎコード</b><textarea id="inputCode" class="codebox" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="TS1. から始まるコードを貼り付け"></textarea></label>
+ <div class="actions"><button class="primary" id="loadBtn">コードを検証して読み込む</button><button class="ghost" id="clearBtn">入力をクリア</button></div>
+ <div id="loadMessage" class="message" role="status" aria-live="polite"></div>
+</section>
+<section class="panel hidden" id="editor">
+ <div class="section-title"><h3>2. 読み込んだセーブデータ</h3><span class="eyebrow">EDIT</span></div>
+ <div class="stats">
+  <div class="stat"><small>累計プレイ</small><strong id="plays">0</strong></div>
+  <div class="stat"><small>最高スコア</small><strong id="bestScore">0</strong></div>
+  <div class="stat"><small>解除済み実績</small><strong id="unlockedCount">0 / 30</strong></div>
+ </div>
+ <div class="bar"><b>実績解除状況</b><span class="count" id="progressText">0 / 30</span></div>
+ <div class="progress"><i id="progressBar"></i></div>
+ <div class="notice">チェックを付けた実績に対して一括操作できます。すでに解除済みの実績の日付は、解除状態を維持する限り変更しません。実績以外のプレイ記録・設定は変更しません。</div>
+ <div class="actions">
+  <button class="good" id="unlockSelected">選択した実績を解除</button>
+  <button class="warn" id="lockSelected">選択した実績を未解除に戻す</button>
+ </div>
+ <div class="actions">
+  <button class="primary" id="unlockAll">全30種類を解除</button>
+  <button class="ghost" id="selectAll">すべて選択</button>
+  <button class="ghost" id="deselectAll">選択解除</button>
+  <button class="danger" id="lockAll">全実績を未解除に戻す</button>
+ </div>
+ <div id="achievementList" class="achievement-list"></div>
+ <div class="actions"><button class="primary" id="exportBtn">変更したデータを引き継ぎコードにする</button></div>
+ <div id="exportMessage" class="message" role="status" aria-live="polite"></div>
+ <div id="exportArea" class="hidden">
+  <label class="field" for="outputCode"><b>ゲームに戻す引き継ぎコード</b><textarea id="outputCode" class="codebox" readonly spellcheck="false"></textarea></label>
+  <div class="actions"><button class="good" id="copyBtn">コードをコピー</button><button class="ghost" id="downloadBtn">テキストファイルで保存</button></div>
+  <div class="notice">ゲーム本体の「データ引き継ぎ」画面で、この新しいコードを読み込み、内容を確認して復元してください。元のコードを発行した端末のデータは変更されません。</div>
+ </div>
+</section>
+<section class="panel">
+ <div class="section-title"><h3>使い方</h3><span class="eyebrow">HOW TO</span></div>
+ <ol>
+  <li>ゲーム本体を開き、「データ引き継ぎ」からコードを発行します。</li>
+  <li>このツールにコードを貼り付け、「コードを検証して読み込む」を押します。</li>
+  <li>解除したい実績を選択し、「選択した実績を解除」または「全30種類を解除」を押します。</li>
+  <li>「変更したデータを引き継ぎコードにする」で新しいコードを作成します。</li>
+  <li>ゲーム本体に戻り、新しいコードを読み込んで復元します。</li>
+ </ol>
+ <div class="notice">このツールは実績の保存状態を編集するものです。実際のプレイ履歴やスコアは増やしません。ゲーム側に戻した後、実績一覧で解除状態を確認してください。</div>
+</section>
+<footer class="footer">TRAIN STOP CHALLENGE · Achievement Modifier · Browser-only processing<br><a class="link" href="https://github.com/mylifereading6666-oss/Web-based-Train-Modification-Tool" target="_blank" rel="noopener">Tool repository</a> · <a class="link" href="https://mylifereading6666-oss.github.io/train-stop-challenge/" target="_blank" rel="noopener">Open the game</a></footer>
+</div>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const ACH=[
+['初めての定位置','初めてピッタリ停車する'],['神業ブレーキ','ピッタリ停車5回'],['寸分の狂いなし','ピッタリ停車10回'],['ミリ単位の職人','ピッタリ停車20回'],['停車の神様','ピッタリ停車50回'],['伝説の運転士','ピッタリ停車100回'],
+['あっ、行き過ぎた！','初めて停車位置を通り過ぎる'],['ブレーキどこ？','通り過ぎ5回'],['止まる気配なし','通り過ぎ10回'],['駅を通過します','通り過ぎ20回'],['特急気分','通り過ぎ50回'],
+['ちょっと届かない','初めて目標位置の手前で停車する'],['慎重すぎる運転士','手前で停車5回'],['あと少しだったのに','手前で停車10回'],['安全第一主義','手前で停車20回'],
+['調子が出てきた！','成功判定を3回連続で達成'],['ブレーキマスター','成功判定を5回連続で達成'],['完璧主義者','成功判定を10回連続で達成'],['止めることに全力','ピッタリ停車を3回連続で達成'],['神がかった集中力','ピッタリ停車を5回連続で達成'],
+['初乗務！','1回プレイする'],['新人運転士','10回プレイする'],['ベテラン運転士','50回プレイする'],['駅長もびっくり','100回プレイする'],['終わらない乗務','500回プレイする'],
+['奇跡の一発停車','初回プレイでピッタリ停車する'],['一発逆転！','通り過ぎた次のプレイでピッタリ停車する'],['ブレーキの達人','連続10回、成功範囲内に停車する'],['諦めない心','初めてピッタリ停車するまでに20回以上プレイする'],['真のマスター','実績29種類を解除する']
+];
+const STAT_FIELDS=['plays','totalScore','bestScore','perfect','overshoot','short','success','streak','bestStreak','perfectStreak','bestPerfectStreak'];
+let working=null,selected=new Set();
+function say(id,msg,kind=''){const el=$(id);el.textContent=msg;el.className='message '+kind}
+function b64(bytes){let s='';for(let i=0;i<bytes.length;i++)s+=String.fromCharCode(bytes[i]);return btoa(s)}
+function unb64(s){if(!/^[A-Za-z0-9+/]+={0,2}$/.test(s))throw Error('Base64形式が正しくありません');const raw=atob(s);return Uint8Array.from(raw,c=>c.charCodeAt(0))}
+function validateSave(d){
+ if(!d||typeof d!=='object'||d.schemaVersion!==1||!d.stats||!d.achievements||!d.settings)throw Error('ゲームのセーブデータ形式ではありません');
+ for(const f of STAT_FIELDS)if(!Number.isSafeInteger(d.stats[f])||d.stats[f]<0||d.stats[f]>1e9)throw Error('不正な数値が含まれています：'+f);
+ for(const id of Object.keys(d.achievements)){if(!/^(?:[0-9]|[12][0-9])$/.test(id)||!d.achievements[id]||isNaN(Date.parse(d.achievements[id])))throw Error('実績IDまたは解除日時が不正です：'+id)}
+ if(!['on','off'].includes(d.settings.sfx)||!['on','off'].includes(d.settings.bgm)||![d.settings.sfxVolume,d.settings.bgmVolume].every(v=>Number.isInteger(v)&&v>=0&&v<=100))throw Error('ゲーム設定の値が不正です');
+ return d;
+}
+async function decryptCode(raw){
+ if(!window.isSecureContext||!crypto.subtle)throw Error('暗号化機能を利用できません。HTTPSでページを開いてください。');
+ const code=String(raw||'').trim().replace(/\s/g,'');
+ const parts=code.split('.');
+ if(parts.length!==4||parts[0]!=='TS1')throw Error('TS1. から始まるゲームの引き継ぎコードを入力してください');
+ const secret=unb64(parts[1]),iv=unb64(parts[2]),ciphertext=unb64(parts[3]);
+ if(secret.length!==32||iv.length!==12||ciphertext.length>2e6)throw Error('コードのサイズまたは形式が不正です');
+ const key=await crypto.subtle.importKey('raw',secret,'AES-GCM',false,['decrypt']);
+ const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,ciphertext);
+ return validateSave(JSON.parse(new TextDecoder().decode(plain)));
+}
+async function encryptCode(data){
+ validateSave(data);
+ const secret=crypto.getRandomValues(new Uint8Array(32)),iv=crypto.getRandomValues(new Uint8Array(12));
+ const key=await crypto.subtle.importKey('raw',secret,'AES-GCM',false,['encrypt']);
+ const plain=new TextEncoder().encode(JSON.stringify(data));
+ const ciphertext=await crypto.subtle.encrypt({name:'AES-GCM',iv},key,plain);
+ return 'TS1.'+[b64(secret),b64(iv),b64(new Uint8Array(ciphertext))].join('.');
+}
+function render(){
+ if(!working)return;
+ const unlocked=Object.keys(working.achievements).length;
+ $('plays').textContent=Number(working.stats.plays).toLocaleString('ja-JP');
+ $('bestScore').textContent=Number(working.stats.bestScore).toLocaleString('ja-JP');
+ $('unlockedCount').textContent=unlocked+' / 30';
+ $('progressText').textContent=unlocked+' / 30';
+ $('progressBar').style.width=(unlocked/30*100)+'%';
+ const list=$('achievementList');list.replaceChildren();
+ ACH.forEach((a,i)=>{
+  const id=String(i),date=working.achievements[id],card=document.createElement('label');
+  card.className='achievement'+(date?' unlocked':'');
+  const check=document.createElement('input');check.type='checkbox';check.checked=selected.has(id);check.setAttribute('aria-label',a[0]+'を選択');
+  check.addEventListener('change',()=>{if(check.checked)selected.add(id);else selected.delete(id)});
+  const medal=document.createElement('span');medal.className='medal';medal.textContent=date?'🏅':'🔒';
+  const body=document.createElement('span'),title=document.createElement('strong'),desc=document.createElement('small');
+  title.textContent=String(i+1).padStart(2,'0')+' '+a[0];desc.textContent=a[1];body.append(title,desc);
+  if(date){const d=document.createElement('small');d.className='date';d.textContent='解除日時：'+new Date(date).toLocaleString('ja-JP');body.append(d)}
+  card.append(check,medal,body);list.append(card);
+ });
+}
+function setSelected(action){
+ if(!working)return;
+ const now=new Date().toISOString();
+ for(const id of selected){if(action==='unlock'){if(!working.achievements[id])working.achievements[id]=now}else delete working.achievements[id]}
+ render();say('exportMessage',action==='unlock'?'選択した実績を解除しました。':'選択した実績を未解除に戻しました。','success');
+}
+$('loadBtn').addEventListener('click',async()=>{
+ say('loadMessage','コードを検証しています…');
+ try{const data=await decryptCode($('inputCode').value);working=JSON.parse(JSON.stringify(data));selected.clear();$('editor').classList.remove('hidden');$('exportArea').classList.add('hidden');say('loadMessage','読み込みに成功しました。実績を編集できます。','success');render();$('editor').scrollIntoView({behavior:'smooth',block:'start'})}
+ catch(e){working=null;$('editor').classList.add('hidden');say('loadMessage',e.message||'コードを読み込めませんでした。','error')}
+});
+$('clearBtn').addEventListener('click',()=>{$('inputCode').value='';working=null;selected.clear();$('editor').classList.add('hidden');say('loadMessage','入力をクリアしました。')});
+$('unlockSelected').addEventListener('click',()=>setSelected('unlock'));
+$('lockSelected').addEventListener('click',()=>setSelected('lock'));
+$('unlockAll').addEventListener('click',()=>{if(!working)return;const now=new Date().toISOString();for(let i=0;i<30;i++)if(!working.achievements[String(i)])working.achievements[String(i)]=now;render();say('exportMessage','全30種類を解除状態にしました。','success')});
+$('lockAll').addEventListener('click',()=>{if(!working)return;if(!confirm('30種類すべての実績を未解除に戻します。よろしいですか？'))return;working.achievements={};render();say('exportMessage','全実績を未解除に戻しました。','success')});
+$('selectAll').addEventListener('click',()=>{selected=new Set(ACH.map((_,i)=>String(i)));render()});
+$('deselectAll').addEventListener('click',()=>{selected.clear();render()});
+$('exportBtn').addEventListener('click',async()=>{
+ if(!working)return;
+ try{working.lastSavedAt=new Date().toISOString();const code=await encryptCode(working);$('outputCode').value=code;$('exportArea').classList.remove('hidden');say('exportMessage','新しい引き継ぎコードを作成しました。ゲーム側で読み込んでください。','success');$('exportArea').scrollIntoView({behavior:'smooth',block:'center'})}
+ catch(e){say('exportMessage',e.message||'コードの作成に失敗しました。','error')}
+});
+$('copyBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('outputCode').value);say('exportMessage','コードをコピーしました。','success')}catch{$('outputCode').focus();$('outputCode').select();say('exportMessage','自動コピーできませんでした。コードを選択してコピーしてください。','error')}});
+$('downloadBtn').addEventListener('click',()=>{const blob=new Blob([$('outputCode').value],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='train-stop-challenge-modified-code.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+})();
+</script>
+</body></html>
